@@ -3,10 +3,15 @@
 #include <math.h>
 #include <stdlib.h>
 
-int day, date, month, year;
+int day;
+int date;
+int month;
+int year;
 int buf;
 char n = 0;
-bool wrong_num_check, restart_prog, leap_year;
+char wrong_num_check;
+char restart_prog;
+char leap_year;
 
 void big_line() {
 	printf("----------------------\n");
@@ -24,32 +29,32 @@ int main() {
 				big_line();
 				printf("Wrong date!\nPlease enter correctly: (dd.mm.year)\n\n");
 				day, month, year = 0;
-				wrong_num_check = true;
+				wrong_num_check = 0;
 				while (getchar() != '\n') {}
 			}
 			else{
-				wrong_num_check = false;
+				wrong_num_check = 0;
 			}
-		} while (wrong_num_check == true);
+		} while (wrong_num_check == 1);
 
 
 		if ((year % 100 != 0 && year % 4 == 0) || (year % 100 == 0 && year % 400 == 0)) {
-			leap_year = true;
+			leap_year = 1;
 		}
 		else{
-			leap_year = false;
+			leap_year = 0;
 		}
-		if (month <= 2 && leap_year == true){
+		if (month <= 2 && leap_year == 1){
 			n = 1;
 		}
-		else if (month <= 2 && leap_year == false) {
+		else if (month <= 2 && leap_year == 0) {
 			n = 2;
 		}
 		else {
 			n = 0;
 		}
 
-		date = ((int(365.25 * year) + int(30.56 * month) + day + n) % 7);
+		date = ((int)(365.25 * year) + (int)(30.56 * month) + day + n) % 7;
 
 		big_line();
 
@@ -79,18 +84,18 @@ int main() {
 
 		big_line();
 		printf("\nDo you want more?\n(press 'Y' for continue)\n");
-		char confirm = _getch();
+		char confirm = getch();
 
 		if (confirm != 'Y' && confirm != 'y'){
-			restart_prog = false;
+			restart_prog = 0;
 			return 0;
 		}
 		else {
-			restart_prog = true;
+			restart_prog = 1;
 			day, year, month, date, leap_year = 0;
 		}
 
-	} while (restart_prog == true);
+	} while (restart_prog == 1);
 
 	return 0;
 }

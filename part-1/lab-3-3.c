@@ -15,7 +15,7 @@ void print_menu() {
 	printf("\n Press "  "'Enter'"  " to start the program.\n Press "  "'i'"  " to see further information.\n Press "  "'e'"  " to exit");
 
 	do {
-		decision = _getch();
+		decision = getch();
 
 		if (decision == 'e') {
 			exit(0);

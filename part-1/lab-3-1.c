@@ -114,7 +114,7 @@ char check_variables(double x, double k, double e) {
 		error_check = 1;
 	}
 
-	if (x < 0.0 && (int(k) % 2 == 0)) {
+	if (x < 0.0 && ((int)k % 2 == 0)) {
 		error_message();
 		printf( "\n If number is lower than zero, Degree must be odd!\n" );
 		error_check = 1;

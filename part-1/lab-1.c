@@ -6,7 +6,7 @@ int roman(int, int, char);
 int main() {
 	int a;
 
-	printf("Enter Number\n");
+	printf("Enter Number: ");
 	scanf("%d", &a);
 
 	a = roman(a, 1000, 'M');

@@ -1,7 +1,7 @@
-#include<stdio.h>
-#include<conio.h>
-#include<math.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <conio.h>
+#include <math.h>
+#include <stdlib.h>
 
 //створюємо функцію для стиліситчного оформлення
 void big_line() {
@@ -11,14 +11,12 @@ void big_line() {
 int main() {
 	int flag = 0;
 	int again = 0;
-	float a, b, c;
+	float a;
+	float b;
+	float c;
 	char buf;
 
-	system("cls");
-	system ("color A");
-
 	do {
-		system("cls");
 		big_line();
 		printf("Enter three sides of triangle:\n");
 
@@ -31,7 +29,6 @@ int main() {
 				big_line();
 			}
 			else {
-				system("cls");
 				big_line();
 				printf("This triangle does not exist!\nPlease write another numbers:\n");
 				flag = 0;
@@ -66,7 +63,6 @@ int main() {
 		char confirm = _getch();
 
 		if (confirm == 'y' || confirm == 'Y') {
-			system("cls");
 			again = 0;
 			a, b, c = 0;
 		}

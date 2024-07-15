@@ -19,7 +19,7 @@ void error_message() {
 
 int restart_programm() {
 	printf("\n Press 'enter' to restart programm\n");
-	return (_getch() == '\r') ? 1 : 0;
+	return (getch() == '\r') ? 1 : 0;
 }
 
 int is_zero(double value) {
@@ -95,36 +95,55 @@ char check_variables(double x1, double x2, double dx, double e) {
 	return error;
 }
 
-char make_decision(char decision = 0){
-	printf("\n Choose trigonometric function "  "(1 - sine; 2 - cosine): " );
-	do {
-		decision = _getch();
+// char choose_table() {
+// 	char decision = 0;
 
-		if (decision == '1') {
-			decision = 0;
-		}
-		else if (decision == '2') {
-			 decision = 1;
-		}
-		else {
-			if (decision == '\r') {
-				printf("\n Please, type something: " );
-			}
-			else {
-				putchar(decision);
-				printf(" - Wrong answer!\n"  " Please, try againg: " );
-			}
-			decision = 2;
-		}
-	} while (decision == 2);
+// 	printf("\n Choose trigonometric function "  "(1 - sine; 2 - cosine): " );
+// 	do {
+// 		decision = getch();
 
-	printf( "%c" , decision + 49);
-	_getch();
+// 		if (decision == '1') {
+// 			decision = 0;
+// 		}
+// 		else if (decision == '2') {
+// 			 decision = 1;
+// 		}
+// 		else {
+// 			if (decision == '\r') {
+// 				printf("\n Please, type something: " );
+// 			}
+// 			else {
+// 				putchar(decision);
+// 				printf(" - Wrong answer!\n"  "Please, try againg: " );
+// 			}
+// 			decision = 2;
+// 		}
+// 	} while (decision == 2);
 
-	return decision;
+// 	printf( "%c" , decision + 49);
+// 	getch();
+
+// 	return decision;
+// }
+
+char choose_table() {
+    char decision = 0;
+
+    printf("\n Choose trigonometric function (1 - sine; 2 - cosine): ");
+
+    while (1) {
+        decision = getch();
+
+        if (decision == '1' || decision == '2') {
+            printf("%c\n", decision);
+            return decision - '1';
+        } else {
+            printf("\nInvalid input. Please, try again: ");
+        }
+    }
 }
 
-float get_double() {
+double get_double() {
 	char check = 0, buf = 0;
 	double number;
 
@@ -141,6 +160,24 @@ float get_double() {
 
 	return number;
 }
+
+// float get_double() {
+// 	char is_invalid_input;
+// 	char buf = 0;
+// 	double number;
+
+// 	do {
+// 		is_invalid_input = 0;
+// 		if (scanf("%lf%c", &number, &buf) && buf == '\n'){
+// 			error_message();
+// 			printf("\n Entered number is not a float!\n"  "\n Please, try again: ");
+// 			while ((buf = getchar()) != '\n' && buf != EOF);
+// 			is_invalid_input = 1;
+// 		}
+// 	} while (is_invalid_input != 0);
+
+// 	return number;
+// }
 
 void print_sine_table(double x1, double x2, double dx, double e) {
 	int limit = (floor)((x2 - x1) / dx + 1);
@@ -213,19 +250,32 @@ void print_cosine_table(double x1, double x2, double dx, double e) {
 }
 
 int main() {
+	double x1;
+	double x2;
+	double e;
+	double dx;
+
 	do {
 		print_header();
-		printf(" Enter first number"  " (x1): ");			double x1 = get_double();
-		printf(" Enter last number"  " (x2): ");				double x2 = get_double();
-		printf(" Enter precision"  " (0.001, 3, 1e-3): ");	double e = get_double();
-		printf(" Enter step"  " (from 0.01 to 100): ");		double dx = get_double();
+
+		printf("Enter first number (x1): ");			
+		x1 = get_double();
+
+		printf("Enter last number (x2): ");				
+		x2 = get_double();
+		
+		printf("Enter precision (0.001, 3, 1e-3): ");	
+		e = get_double();
+		
+		printf("Enter step (from 0.01 to 100): ");		
+		dx = get_double();
 
 		if (e >= 1) {
 			e = pow(10, -e);
 		}
 
 		if (!check_variables(x1, x2, dx, e)) {
-			if (!make_decision()) {
+			if (!choose_table()) {
 				print_header();
 				printf("  ~~ Rad ~~  ~~ Library ~~  ~~ Taylor ~~   ~~ Delta ~~\n");
 				printf( "      x           sin           sin          sin-Tsin\n\n" );
