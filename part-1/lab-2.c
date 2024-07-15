@@ -3,44 +3,47 @@
 #include <math.h>
 #include <stdlib.h>
 
-//створюємо функцію для стиліситчного оформлення
-void big_line() {
+void print_line()
+{
 	printf("-----------------------------\n");
 }
 
-int main() {
-	int flag = 0;
+int main()
+{
+	int error = 0;
 	int again = 0;
 	float a;
 	float b;
 	float c;
 	char buf;
 
-	do {
-		big_line();
+	do
+	{
+		print_line();
 		printf("Enter three sides of triangle:\n");
 
-		do {
+		do
+		{
 			scanf("%f %f %f%c", &a, &b, &c, &buf);
 
-			//перевіряємо умови існування трикутника
-			if (a < b + c && b < a + c && c < a + b && buf == '\n') {
-				flag = 1;
-				big_line();
+			if (a < b + c && b < a + c && c < a + b && buf == '\n')
+			{
+				error = 0;
+				print_line();
 			}
-			else {
-				big_line();
-				printf("This triangle does not exist!\nPlease write another numbers:\n");
-				flag = 0;
-				while (getchar() != '\n') {}
+			else
+			{
+				print_line();
+				printf("Such triangle does not exist.\nPlease write another numbers:\n");
+				error = 1;
+				while (getchar() != '\n'){}
 			}
-		} while (flag == 0);
+		} while (error == 1);
 
 		float p = (a + b + c) / 2;
 		float area = sqrt(p * (p - a) * (p - b) * (p - c));
 		float height = 2 * sqrt(p * (p - a) * (p - b) * (p - c));
 
-		//виводемо результат обчислень
 		printf("The area of triangle is: %.4f\n", area);
 		printf("The perimetr of triangle is: %.4f\n\n", p * 2);
 
@@ -56,17 +59,18 @@ int main() {
 		printf("The B median is: %.4f\n", 0.5 * sqrt(2 * a * a + 2 * c * c - b * b));
 		printf("The C median is: %.4f\n", 0.5 * sqrt(2 * b * b + 2 * a * a - c * c));
 
-		big_line();
+		print_line();
 
-		//питаємо в користувача чи хоче він продовжити обчислення
 		printf("\nPress 'y' to continue calculating\n");
-		char confirm = _getch();
+		char confirm = getch();
 
-		if (confirm == 'y' || confirm == 'Y') {
+		if (confirm == 'y' || confirm == 'Y')
+		{
 			again = 0;
 			a, b, c = 0;
 		}
-		else{
+		else
+		{
 			again = 1;
 		}
 

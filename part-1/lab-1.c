@@ -3,7 +3,8 @@
 
 int roman(int, int, char);
 
-int main() {
+int main()
+{
 	int a;
 
 	printf("Enter Number: ");
@@ -20,8 +21,10 @@ int main() {
 	return 0;
 }
 
-int roman(int i, int j, char c) {
-	while (i >= j) {
+int roman(int i, int j, char c)
+{
+	while (i >= j)
+	{
 		putchar(c);
 		i = i - j;
 	}

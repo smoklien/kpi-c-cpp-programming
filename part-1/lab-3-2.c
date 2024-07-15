@@ -7,58 +7,68 @@ int day;
 int date;
 int month;
 int year;
-int buf;
 char n = 0;
-char wrong_num_check;
-char restart_prog;
-char leap_year;
+char error;
+char restart_program;
+char is_year_leap;
 
-void big_line() {
+void print_line()
+{
 	printf("----------------------\n");
 }
 
-int main() {
-	do {
-		big_line();
+int main()
+{
+	do
+	{
+		print_line();
 		printf("Enter your date: (dd.mm.year)\n\n");
 
-		do {
+		do
+		{
 			scanf("%d.%d.%d", &day, &month, &year);
-			if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1 || year > 9999) {
-				system("cls");
-				big_line();
+			if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1 || year > 9999)
+			{
+				print_line();
 				printf("Wrong date!\nPlease enter correctly: (dd.mm.year)\n\n");
 				day, month, year = 0;
-				wrong_num_check = 0;
-				while (getchar() != '\n') {}
+				error = 1;
+				while (getchar() != '\n'){}
 			}
-			else{
-				wrong_num_check = 0;
+			else
+			{
+				error = 0;
 			}
-		} while (wrong_num_check == 1);
+		} while (error == 1);
 
+		if ((year % 100 != 0 && year % 4 == 0) || (year % 100 == 0 && year % 400 == 0))
+		{
+			is_year_leap = 1;
+		}
+		else
+		{
+			is_year_leap = 0;
+		}
 
-		if ((year % 100 != 0 && year % 4 == 0) || (year % 100 == 0 && year % 400 == 0)) {
-			leap_year = 1;
-		}
-		else{
-			leap_year = 0;
-		}
-		if (month <= 2 && leap_year == 1){
+		if (month <= 2 && is_year_leap == 1)
+		{
 			n = 1;
 		}
-		else if (month <= 2 && leap_year == 0) {
+		else if (month <= 2 && is_year_leap == 0)
+		{
 			n = 2;
 		}
-		else {
+		else
+		{
 			n = 0;
 		}
 
 		date = ((int)(365.25 * year) + (int)(30.56 * month) + day + n) % 7;
 
-		big_line();
+		print_line();
 
-		switch (date) {
+		switch (date)
+		{
 		case 0:
 			printf("Monday\n");
 			break;
@@ -82,20 +92,22 @@ int main() {
 			break;
 		}
 
-		big_line();
+		print_line();
 		printf("\nDo you want more?\n(press 'Y' for continue)\n");
 		char confirm = getch();
 
-		if (confirm != 'Y' && confirm != 'y'){
-			restart_prog = 0;
+		if (confirm != 'Y' && confirm != 'y')
+		{
+			restart_program = 0;
 			return 0;
 		}
-		else {
-			restart_prog = 1;
-			day, year, month, date, leap_year = 0;
+		else
+		{
+			restart_program = 1;
+			day, year, month, date, is_year_leap = 0;
 		}
 
-	} while (restart_prog == 1);
+	} while (restart_program == 1);
 
 	return 0;
 }
