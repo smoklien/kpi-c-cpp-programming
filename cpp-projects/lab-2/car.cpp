@@ -174,19 +174,29 @@ void printCars(const std::filesystem::path &filename, const int &min_year)
     }
 
     Car car;
-
     bool success;
-    while (success = readCar(file, car))
+
+    while (true)
     {
+        success = readCar(file, car);
+        if (!success)
+        {
+            if (file.eof())
+            {
+                break; // End of file reached, break the loop
+            }
+            else
+            {
+                std::cerr << "Error: Failed to read car data from the input file." << std::endl;
+                return;
+            }
+        }
+
         if (isManufacturedAfterMinYear(car, min_year))
         {
-            std::cout << "Car: " << car.name << ", Manufacture date: " << car.manufacture_date << ", Sales start date: " << car.sales_start_date << std::endl;
+            std::cout << "Car: " << car.name << ", Manufacture date: " << car.manufacture_date
+                      << ", Sales start date: " << car.sales_start_date << std::endl;
         }
-    }
-    if (!success || file.eof() || file.fail())
-    {
-        std::cerr << "Error: Failed to read car data from the input file." << std::endl;
-        return;
     }
 
     file.close();
@@ -194,7 +204,7 @@ void printCars(const std::filesystem::path &filename, const int &min_year)
 
 void printNewCars(const std::filesystem::path &file_path)
 {
-    std::filesystem::path output_file_path = file_path + "_new.bin";
+    std::filesystem::path output_file_path = file_path.u8string() + "_new.bin";
 
     std::ifstream file(file_path, std::ios::binary);
     std::ofstream output_file(output_file_path, std::ios::binary);
@@ -212,20 +222,31 @@ void printNewCars(const std::filesystem::path &file_path)
     }
 
     Car car;
-
     bool success;
-    while (success = readCar(file, car))
+
+    while (true)
     {
+        bool success = readCar(file, car);
+        if (!success)
+        {
+            if (file.eof())
+            {
+                break; // End of file reached, break the loop
+            }
+            else
+            {
+                std::cerr << "Error: Failed to read car data from " << file_path << std::endl;
+                return;
+            }
+        }
+
         if (isCarNew(car))
         {
-            output_file << "Car: " << car.name << ", Manufacture date: " << car.manufacture_date << ", Sales start date: " << car.sales_start_date << "\n";
-            std::cout << "Car: " << car.name << ", Manufacture date: " << car.manufacture_date << ", Sales start date: " << car.sales_start_date << "\n";
+            output_file << "Car: " << car.name << ", Manufacture date: " << car.manufacture_date
+                        << ", Sales start date: " << car.sales_start_date << "\n";
+            std::cout << "Car: " << car.name << ", Manufacture date: " << car.manufacture_date
+                      << ", Sales start date: " << car.sales_start_date << "\n";
         }
-    }
-    if (!success || file.eof() || file.fail())
-    {
-        std::cerr << "Error: Failed to read car data from." << file_path << std::endl;
-        return;
     }
 
     file.close();

@@ -6,6 +6,7 @@
 #include <fstream>
 #include <limits>
 #include <filesystem>
+#include <string>
 
 extern void createFile(std::filesystem::path &);
 extern void deleteFile(std::filesystem::path &);

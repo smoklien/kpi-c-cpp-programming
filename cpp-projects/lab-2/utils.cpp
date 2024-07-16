@@ -15,7 +15,7 @@ void createFile(std::filesystem::path &file_path)
 
 void deleteFile(std::filesystem::path &file_path)
 {
-    if (std::remove(file_path.c_str()) != 0)
+    if (!std::filesystem::remove(file_path))
     {
         std::cerr << "Error: Failed to delete the file: " << file_path << std::endl;
         return;

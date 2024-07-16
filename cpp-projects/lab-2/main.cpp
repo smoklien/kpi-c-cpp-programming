@@ -1,7 +1,7 @@
 #include "car.hpp"
 #include "utils.hpp"
 
-void menu(std::string);
+void menu(std::filesystem::path);
 
 int main()
 {
