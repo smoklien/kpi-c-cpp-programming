@@ -6,14 +6,18 @@ This repository is my one-stop shop for the source code, documentation, and repo
 
 ```
 c-projects
-|-- lab-*.c: Each lab has its own C source file
+|-- lab-*.c
+|-- ...
 cpp-projects
-|-- lab-*: Each C++ lab has its dedicated directory
-|   |-- header: Lab's header files
+|-- lab-*
+|   |-- header
 |   |   |-- *.hpp
-|   |-- source: Source code
+|   |   |-- ...
+|   |-- source
 |   |   |-- *.cpp
-.gitignore: File or folders to ignore
+|   |   |-- ...
+|   ...
+.gitignore
 ```
 
 ## Getting started
