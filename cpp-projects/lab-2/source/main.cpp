@@ -1,22 +1,26 @@
 #include "..\header\car.hpp"
 #include "..\header\utils.hpp"
 
-void menu(std::filesystem::path);
+void menu(fs::path, fs::path);
 
 int main()
 {
-    std::filesystem::path current_path = std::filesystem::current_path();
-    std::filesystem::path file_path = current_path / "cars.bin";
-    // std::string file_name = "cars.bin";
+    fs::path current_path = fs::current_path();
+    fs::path file_path = current_path / "cars.bin";
+    fs::path output_file_path = current_path / "cars_new.bin";
 
     createFile(file_path);
-    menu(file_path);
+    menu(file_path, output_file_path);
     deleteFile(file_path);
+    if(IS_OUTPUT_FILE_CREATED == true)
+    {
+        deleteFile(output_file_path);
+    }
 
     return 0;
 }
 
-void menu(std::filesystem::path file_path)
+void menu(fs::path file_path, fs::path output_file_path)
 {
     while (true)
     {
@@ -42,7 +46,8 @@ void menu(std::filesystem::path file_path)
             printCars(file_path, min_year);
             break;
         case 3:
-            printNewCars(file_path);
+            IS_OUTPUT_FILE_CREATED = true;
+            printNewCars(file_path, output_file_path);
             break;
         case 0:
             return;

@@ -42,7 +42,7 @@ bool parseDate(const std::string &dateString, int &day, int &month, int &year)
     return false;
 }
 
-void addCar(const std::filesystem::path &file_path)
+void addCar(const fs::path &file_path)
 {
     std::string name, manufacture_date, sales_start_date;
 
@@ -164,7 +164,7 @@ bool writeCar(std::ofstream &file, const Car &car)
     return true;
 }
 
-void printCars(const std::filesystem::path &filename, const int &min_year)
+void printCars(const fs::path &filename, const int &min_year)
 {
     std::ifstream file(filename, std::ios::binary);
     if (!file)
@@ -202,10 +202,8 @@ void printCars(const std::filesystem::path &filename, const int &min_year)
     file.close();
 }
 
-void printNewCars(const std::filesystem::path &file_path)
+void printNewCars(const fs::path &file_path, const fs::path &output_file_path)
 {
-    std::filesystem::path output_file_path = file_path.u8string() + "_new.bin";
-
     std::ifstream file(file_path, std::ios::binary);
     std::ofstream output_file(output_file_path, std::ios::binary);
 

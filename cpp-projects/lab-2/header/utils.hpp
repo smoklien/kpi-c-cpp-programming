@@ -8,8 +8,12 @@
 #include <filesystem>
 #include <string>
 
-extern void createFile(std::filesystem::path &);
-extern void deleteFile(std::filesystem::path &);
+namespace fs = std::filesystem;
+
+static bool IS_OUTPUT_FILE_CREATED = false;
+
+extern void createFile(fs::path &);
+extern void deleteFile(fs::path &);
 
 extern int getChoice();
 extern int getYear(const std::string &);

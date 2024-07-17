@@ -1,6 +1,6 @@
 #include "..\header\utils.hpp"
 
-void createFile(std::filesystem::path &file_path)
+void createFile(fs::path &file_path)
 {
     std::ifstream file(file_path, std::ios::binary | std::ios::app);
 
@@ -13,9 +13,9 @@ void createFile(std::filesystem::path &file_path)
     file.close();
 }
 
-void deleteFile(std::filesystem::path &file_path)
+void deleteFile(fs::path &file_path)
 {
-    if (!std::filesystem::remove(file_path))
+    if (!fs::remove(file_path))
     {
         std::cerr << "Error: Failed to delete the file: " << file_path << std::endl;
         return;

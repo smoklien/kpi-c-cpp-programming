@@ -15,6 +15,6 @@ extern bool parseDate(const std::string &, int &, int &, int &);
 
 extern bool readCar(std::ifstream &, Car &);
 extern bool writeCar(std::ofstream &, const Car &);
-extern void addCar(const std::filesystem::path &);
-extern void printCars(const std::filesystem::path &, const int &);
-extern void printNewCars(const std::filesystem::path &);
+extern void addCar(const fs::path &);
+extern void printCars(const fs::path &, const int &);
+extern void printNewCars(const fs::path &, const fs::path &);
