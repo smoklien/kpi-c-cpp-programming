@@ -6,10 +6,11 @@
 #include <QTableWidget>
 #include <QStandardItemModel>
 #include <QMessageBox>
-#include "matrixinversion.h"
-#include "matrix.h"
+#include "matrix.hpp"
+#include "matrixinversion.hpp"
 
-namespace Ui {
+namespace Ui
+{
     class InputWindow;
 }
 
@@ -18,15 +19,15 @@ class InputWindow : public QDialog
     Q_OBJECT
 
 public:
-    InputWindow(QWidget*, bool, int);
+    InputWindow(QWidget *, bool, int);
     ~InputWindow();
 
 private slots:
-    void on_pushButtonSubmit_clicked(); 
-    void on_pushButtonClear_clicked(); 
+    void on_pushButtonSubmit_clicked();
+    void on_pushButtonClear_clicked();
 
 private:
-    Ui::InputWindow* ui;
+    Ui::InputWindow *ui;
     Matrix *inputMatrix_;
     bool method_;
     int size_;
