@@ -1,6 +1,6 @@
 Task:
 
-Create an abstract data type (ADT) _"Array with defined size"_ that contains data of an arbitrary type. The ADT interface have to include next operations:
+Create an abstract data type (`ADT`) _"Array with defined size"_ that contains data of an arbitrary type. The `ADT` interface have to include next operations:
 
 - Define the array size.
 - Search for an element with a given value.

@@ -1,6 +1,6 @@
 # C/C++ Programming Lab Works Repository / QT Framework
 
-This repository is my one-stop shop for the source code, documentation, and reports for my C and C++ lab works. Some of the C++ labs were written with QT Framework. Get access to various labs, explore their details, and utilize provided resources to effectively complete your assignments.
+This repository contains various lab works completed during my university studies. It includes projects developed in `C`, `C++`, and the `QT Framework`, showcasing my proficiency in these technologies.
 
 ## Repository structure
 
@@ -16,6 +16,15 @@ cpp-projects
 |   |-- source
 |   |   |-- *.cpp
 |   |   |-- ...
+|   ...
+qt-projects
+|-- <<name>>
+|   |-- *.cpp
+|   |-- ...
+|   |-- *.hpp
+|   |-- ...
+|   |-- *.ui
+|   |-- ...
 |   ...
 .gitignore
 ```
@@ -36,5 +45,4 @@ cpp-projects
     
 3. Explore my labs:
 
-    - Visit individual lab directories within `lab-*` in the `sorce` folders to access the corresponding source code.
-    - Refer to the `docs` folder for relevant reports and additional documentation.
+    - Visit project directories and gain to access the corresponding source code.
