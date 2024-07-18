@@ -1,6 +1,6 @@
-# C/C++ Programming Lab Works Repository
+# C/C++ Programming Lab Works Repository / QT Framework
 
-This repository is my one-stop shop for the source code, documentation, and reports for my C and C++ lab works. Get access to various labs, explore their details, and utilize provided resources to effectively complete your assignments.
+This repository is my one-stop shop for the source code, documentation, and reports for my C and C++ lab works. Some of the C++ labs were written with QT Framework. Get access to various labs, explore their details, and utilize provided resources to effectively complete your assignments.
 
 ## Repository structure
 
