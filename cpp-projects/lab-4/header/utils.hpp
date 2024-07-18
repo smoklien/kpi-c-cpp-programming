@@ -4,7 +4,8 @@
 #include <limits>
 #include <cmath>
 
-namespace colors {
+namespace colors
+{
 	const std::string reset = "\033[0m";
 	const std::string red = "\033[31m";
 	const std::string yellow = "\033[33m";

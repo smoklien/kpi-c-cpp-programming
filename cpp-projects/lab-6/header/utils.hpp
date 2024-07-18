@@ -3,7 +3,8 @@
 #include <iostream>
 #include <limits>
 
-namespace colors {
+namespace colors
+{
 	const std::string RESET = "\033[0m";
 	const std::string RED = "\033[31m";
 	const std::string YELLOW = "\033[33m";

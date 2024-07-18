@@ -2,7 +2,8 @@
 
 #include "..\header\utils.hpp"
 
-class Triangle {
+class Triangle
+{
 private:
     float side_a_;
     float side_b_;
@@ -14,7 +15,7 @@ private:
 
 public:
     Triangle(float, float, float);
-    Triangle(const Triangle&);
+    Triangle(const Triangle &);
     Triangle(float, float);
 
     void ValidateTriangle();

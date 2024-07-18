@@ -2,8 +2,8 @@
 
 #include "..\header\array.hpp"
 
-
-class Interface {
+class Interface
+{
 private:
 	int size_;
 	std::string type_;
@@ -14,10 +14,10 @@ private:
 	int GetUserInput();
 
 	template <typename T>
-	void InteractWithArray(Array<T>&, int);
+	void InteractWithArray(Array<T> &, int);
 
 	template <typename T>
-	void ChooseOption(Array<T>&);
+	void ChooseOption(Array<T> &);
 
 public:
 	void SetArraySize();

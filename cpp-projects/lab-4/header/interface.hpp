@@ -2,17 +2,19 @@
 
 #include "..\header\triangle.hpp"
 
-class Interface {
+class Interface
+{
 private:
-	Triangle** triangles_;
+	Triangle **triangles_;
 	int number_of_triangles_;
 
-	//void ValidateStream();
+	// void ValidateStream();
 	void DisplayCreationOptions(int) const;
 	void DisplayUpdateOptions(int) const;
-	Triangle* CreateTriangleWithSides();
-	Triangle* CreateTriangleWithSideAndHeight();
+	Triangle *CreateTriangleWithSides();
+	Triangle *CreateTriangleWithSideAndHeight();
 	bool IsStreamValid();
+
 public:
 	Interface(int);
 	~Interface();

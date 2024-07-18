@@ -3,11 +3,13 @@
 #include <iostream>
 #include "..\header\utils.hpp"
 
-class TIntNumber {
+class TIntNumber
+{
 protected:
-	std::string m_number;
+    std::string m_number;
+
 public:
-    TIntNumber(const std::string&);
+    TIntNumber(const std::string &);
     virtual ~TIntNumber() {}
 
     virtual void Increment() = 0;
@@ -15,5 +17,5 @@ public:
 
     virtual int ToDecimal() const = 0;
 
-    const std::string& GetNumber();
+    const std::string &GetNumber();
 };

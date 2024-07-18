@@ -1,78 +1,95 @@
 #include "..\header\array.hpp"
 
-template<typename T>
-Array<T>::Array(int size) : size_(size) {
+template <typename T>
+Array<T>::Array(int size) : size_(size)
+{
     data_ = new T[size];
-    for (int i = 0; i < size_; i++) {
+    for (int i = 0; i < size_; i++)
+    {
         data_[i] = T();
     }
 }
 
-template<typename T>
-Array<T>::~Array() {
+template <typename T>
+Array<T>::~Array()
+{
     delete[] data_;
 }
 
-template<typename T>
-int Array<T>::GetSize() const {
+template <typename T>
+int Array<T>::GetSize() const
+{
     return size_;
 }
 
-template<typename T>
-int Array<T>::Find(const T& value) {
-    for (int i = 0; i < size_; i++) {
-        if (data_[i] == value) {
+template <typename T>
+int Array<T>::Find(const T &value)
+{
+    for (int i = 0; i < size_; i++)
+    {
+        if (data_[i] == value)
+        {
             return i;
         }
     }
     return 0;
 }
 
-template<typename T>
-bool Array<T>::IsEmpty() {
+template <typename T>
+bool Array<T>::IsEmpty()
+{
     return size_ == 0;
 }
 
-template<typename T>
-void Array<T>::Insert(int position, const T& value) {
-    if (position >= 0 && position < size_) {
+template <typename T>
+void Array<T>::Insert(int position, const T &value)
+{
+    if (position >= 0 && position < size_)
+    {
         data_[position] = value;
     }
-    else {
+    else
+    {
         throw std::out_of_range("Index out of bounds");
     }
 }
 
-template<class T>
-Array<T>::Iterator::Iterator(T* start) : ptr(start) {}
+template <class T>
+Array<T>::Iterator::Iterator(T *start) : ptr(start) {}
 
-template<typename T>
-T& Array<T>::Iterator::GetValue() {
+template <typename T>
+T &Array<T>::Iterator::GetValue()
+{
     return *ptr;
 }
 
-template<typename T>
-void Array<T>::Iterator::Next() {
+template <typename T>
+void Array<T>::Iterator::Next()
+{
     ptr++;
 }
 
-template<typename T>
-void Array<T>::Iterator::Previous() {
+template <typename T>
+void Array<T>::Iterator::Previous()
+{
     ptr--;
 }
 
-template<typename T>
-bool Array<T>::Iterator::IsEnd(Iterator end) {
+template <typename T>
+bool Array<T>::Iterator::IsEnd(Iterator end)
+{
     return ptr == end.ptr;
 }
 
-template<typename T>
-typename Array<T>::Iterator Array<T>::Begin() {
+template <typename T>
+typename Array<T>::Iterator Array<T>::Begin()
+{
     return Iterator(data_);
 }
 
-template<typename T>
-typename Array<T>::Iterator Array<T>::End() {
+template <typename T>
+typename Array<T>::Iterator Array<T>::End()
+{
     return Iterator(data_ + size_);
 }
 

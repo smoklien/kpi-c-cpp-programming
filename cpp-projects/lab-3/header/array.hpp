@@ -3,9 +3,10 @@
 #include <limits>
 #include <iostream>
 
-class NumericArray {
+class NumericArray
+{
 private:
-    int* arr;
+    int *arr;
     int size;
 
 public:
