@@ -1,0 +1,1 @@
+Task: Create a _"Numeric Array"_ class with fixed size. Create an array of objects of this class. Find the array with the smallest maximum element.

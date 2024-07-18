@@ -1,0 +1,1 @@
+Task: Create a _"Car"_ structure. Record the car's _manufactured date_ and _sales start date_ into a binary file. Implement methods of reading and writing.
