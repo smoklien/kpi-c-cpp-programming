@@ -42,11 +42,11 @@ cd kpi-c-cpp-programming\qt-projects\matrix-inversion\release
 3. Run the `windeployqt` command to create a deployable folder containing the Qt-related dependencies:
 
 ```batch
-windeployqt matrix_inversion.exe
+windeployqt matrix-inversion.exe
 ```
 
 4. Run the executable:
 
 ```batch
-matrix_inversion.exe
+matrix-inversion.exe
 ```
