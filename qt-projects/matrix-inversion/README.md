@@ -33,7 +33,7 @@ $$
 ### Windows 11, MinGW
 
 1. Download QT binaries from the [online installer](https://www.qt.io/download-qt-installer-oss)
-2. Open MinGW's terminal and Navigate to the `realese` directory:
+2. Open the QT MinGW's terminal and Navigate to the `realese` directory:
 
 ```batch
 cd kpi-c-cpp-programming\qt-projects\matrix-inversion\release
