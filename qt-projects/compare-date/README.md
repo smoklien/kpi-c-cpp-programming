@@ -13,8 +13,23 @@ Create _"Date"_ class with date format DD-MM-YYYY. In case of date format incons
 
 ## Getting Started
 
+### Windows 11, MinGW
+
 1. Download QT binaries from the [online installer](https://www.qt.io/download-qt-installer-oss)
+2. Open the QT MinGW's terminal and Navigate to the `realese` directory:
 
-2. Create a new project with all the files in the current directory _(compare-date)_.
+```batch
+cd kpi-c-cpp-programming\qt-projects\matrix-inversion\release
+```
 
-3. Build and Run the program.
+3. Run the `windeployqt` command to create a deployable folder containing the Qt-related dependencies:
+
+```batch
+windeployqt compare-date.exe
+```
+
+4. Run the executable:
+
+```batch
+compare-date.exe
+```
